@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: lightblue;
+}
+.container {
+  width: 500px;
+  margin: 20px auto;
+}
+.form {
+  background-color: #eee;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.input {
+  padding: 10px;
+  border: 1px solid lightseagreen;
+  flex: 1;
+  border-radius: 20px;
+}
+.input:focus {
+  outline: none;
+  border: 1px solid red;
+}
+.add {
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  border: none;
+}
+.add:hover {
+  border: 1px solid lightseagreen;
+}
+.tasks {
+  background-color: #eee;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 20px;
+}
+.tasks .task {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid lightblue;
+}
+.tasks .task:not(:last-child) {
+  margin-bottom: 10px;
+}
+.tasks .task:hover {
+  background-color: #f7f7f7;
+}
+.tasks .task.done {
+  opacity: 0.5;
+}
+.tasks .task .del {
+  background-color: #ec300b;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  border: none;
+}
