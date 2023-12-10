@@ -87,8 +87,9 @@ submit.onclick =
     tasksDiv.addEventListener('click', (e) => {
       if (e.target.classList.contains('del')) {
         // delete task from local storage
-        e.target.parentElement.remove();
+        deleteTaskFromStorage(e.target.parentElement.getAttribute('data-id'));
 
-        // delete task from
+        // delete task from main page
+        e.target.parentElement.remove();
       }
     })

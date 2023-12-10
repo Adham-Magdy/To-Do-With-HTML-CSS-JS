@@ -86,6 +86,8 @@ function getDataFromStorage() {
 tasksDiv.addEventListener('click', function (e) {
   if (e.target.classList.contains('del')) {
     // delete task from local storage
-    e.target.parentElement.remove(); // delete task from
+    deleteTaskFromStorage(e.target.parentElement.getAttribute('data-id')); // delete task from main page
+
+    e.target.parentElement.remove();
   }
 });
