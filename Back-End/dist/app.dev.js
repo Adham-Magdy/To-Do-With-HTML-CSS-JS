@@ -169,7 +169,21 @@ var tasksContainer = document.querySelector('.tasks');
 var categorySelected = document.querySelector('#category-select');
 var cancelButton = document.querySelector('.cancel-btn');
 var addButton = document.querySelector('.add-btn');
-var taskInput = document.querySelector('#task-input'); // function to toggle class show-category on wrapper screen
+var taskInput = document.querySelector('#task-input'); // save tasks in local storage
+
+var saveToLocalStorage = function saveToLocalStorage() {
+  window.localStorage.setItem('tasks', JSON.stringify(tasks));
+}; // get tasks from local storage
+
+
+var getFromLocalStorage = function getFromLocalStorage() {
+  var localStorageTasks = JSON.parse(window.localStorage.getItem('tasks'));
+
+  if (localStorageTasks) {
+    tasks = localStorageTasks;
+  }
+}; // function to toggle class show-category on wrapper screen
+
 
 var toggleScreen = function toggleScreen() {
   wrapper.classList.toggle('show-category');
@@ -204,7 +218,6 @@ var renderCategories = function renderCategories() {
     div.addEventListener('click', function () {
       wrapper.classList.add('show-category');
       selectedCategory = category;
-      console.log(selectedCategory);
       categoryTitle.innerHTML = category.title;
       categoryImg.src = category.img;
       getTotalTasks(); // render tasks when category selected
@@ -267,21 +280,7 @@ var renderTasks = function renderTasks() {
     getTotalTasks();
   }
 }; // end function
-// save tasks in local storage
-
-
-var saveToLocalStorage = function saveToLocalStorage() {
-  window.localStorage.setItem('tasks', JSON.stringify(tasks));
-}; // get tasks from local storage
-
-
-var getFromLocalStorage = function getFromLocalStorage() {
-  var localStorageTasks = JSON.parse(window.localStorage.getItem('tasks'));
-
-  if (localStorageTasks) {
-    tasks = localStorageTasks;
-  }
-}; // render all categories in select options
+// render all categories in select options
 
 
 categories.forEach(function (category) {

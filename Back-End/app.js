@@ -209,6 +209,18 @@ let cancelButton = document.querySelector('.cancel-btn');
 let addButton = document.querySelector('.add-btn');
 let taskInput = document.querySelector('#task-input');
 
+// save tasks in local storage
+const saveToLocalStorage = () => {
+  window.localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+// get tasks from local storage
+const getFromLocalStorage = () => {
+  let localStorageTasks = JSON.parse(window.localStorage.getItem('tasks'));
+  if (localStorageTasks) {
+    tasks = localStorageTasks;
+  }
+};
 
 // function to toggle class show-category on wrapper screen
 const toggleScreen = () => {
@@ -244,7 +256,6 @@ const renderCategories = () => {
     div.addEventListener('click', () => {
       wrapper.classList.add('show-category');
       selectedCategory = category;
-      console.log(selectedCategory);
       categoryTitle.innerHTML = category.title;
       categoryImg.src = category.img;
       getTotalTasks();
@@ -370,18 +381,7 @@ const renderTasks = () => {
   }
 };  // end function
 
-// save tasks in local storage
-const saveToLocalStorage = () => {
-  window.localStorage.setItem('tasks', JSON.stringify(tasks));
-};
 
-// get tasks from local storage
-const getFromLocalStorage = () => {
-  let localStorageTasks = JSON.parse(window.localStorage.getItem('tasks'));
-  if (localStorageTasks) {
-    tasks = localStorageTasks;
-  }
-};
 
 // render all categories in select options
 
