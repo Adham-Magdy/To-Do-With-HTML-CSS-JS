@@ -399,8 +399,15 @@ addButton.addEventListener('click', () => {
   const category = categorySelected.value;
   if (task === ' ') {
     alert('Please Enter Your Task !');
+  } else {
+    const newTask = {id: tasks.length + 1, task, category, completed: false};
+    tasks.push(newTask);
+    taskInput.value = '';
+    saveToLocalStorage();
+    toggleAddTaskForm();
+    renderTasks();
   }
-})
+});
 
 // Trigger Functions
 getFromLocalStorage();

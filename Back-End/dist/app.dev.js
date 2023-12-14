@@ -298,6 +298,18 @@ addButton.addEventListener('click', function () {
 
   if (task === ' ') {
     alert('Please Enter Your Task !');
+  } else {
+    var newTask = {
+      id: tasks.length + 1,
+      task: task,
+      category: category,
+      completed: false
+    };
+    tasks.push(newTask);
+    taskInput.value = '';
+    saveToLocalStorage();
+    toggleAddTaskForm();
+    renderTasks();
   }
 }); // Trigger Functions
 
